@@ -14,10 +14,10 @@ export class AppComponent {
   }
   
   throwError(){
-    throw new Error('test');
+    throw new Error('My Pretty Error');
   }
 
   throwHttpError(){
-    this.http.get('fda').subscribe();
+    this.http.get('urlhere').subscribe();
   }
 }
