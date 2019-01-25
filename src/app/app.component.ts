@@ -4,8 +4,10 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 @Component({
   selector: 'app-root',
   template: `
-    <button (click)="throwError()">Error</button>
-    <button (click)="throwHttpError()">HTTP</button>
+    <div style="margin: 40px">
+      <button (click)="throwError()">Error</button>
+      <button (click)="throwHttpError()">HTTP</button>
+    </div>
   `
 })
 export class AppComponent {

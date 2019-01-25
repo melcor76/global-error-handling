@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
@@ -6,14 +6,19 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class NotificationService {
 
-  constructor(public snackBar: MatSnackBar) { }
+  constructor(
+    public snackBar: MatSnackBar,
+    private zone: NgZone) { }
 
   showSuccess(message: string): void {
-    this.snackBar.open(message);
+    this.zone.run(() => {
+      this.snackBar.open(message);
+    });
   }
 
   showError(message: string): void {
-    this.snackBar.open(message, 'X', {panelClass: ['error']});
+    this.zone.run(() => {
+      this.snackBar.open(message, 'X', {panelClass: ['error']});
+    });
   }
-
 }

@@ -6,8 +6,6 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class ErrorService {
 
-  constructor() { }
-
   getClientErrorMessage(error: Error): string {    
     return error.message ? 
            error.message : 
